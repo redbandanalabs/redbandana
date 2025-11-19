@@ -1,0 +1,23 @@
+[package]
+name = "hand-cranked-privacy"
+version = "0.1.0"
+edition = "2021"
+description = "A simple hand-cranked privacy protocol for Solana, inspired by bunker coin and zkSNARKs"
+authors = ["Grok <grok@x.ai>"]
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+solana-program = "1.18.0"  # Latest Solana SDK
+spl-token = { version = "4.0.0", features = ["no-entrypoint"] }
+spl-zk-token-sdk = "0.1.0"  # For confidential token support
+ark-bn254 = "0.4.0"  # For zkSNARK curves
+ark-groth16 = "0.4.0"  # Groth16 zkSNARKs
+ark-std = "0.4.0"
+rand = "0.8.5"
+
+[dev-dependencies]
+solana-program-test = "1.18.0"
+tokio = { version = "1", features = ["full"] }
